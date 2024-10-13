@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init.sql: |
+    CREATE USER 'admin'@'%' IDENTIFIED BY 'admin';
+    GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
+    CREATE DATABASE IF NOT EXISTS bookstore_db;
